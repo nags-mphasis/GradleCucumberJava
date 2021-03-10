@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './gradlew test -Dcucumber.options="/src/test/resources/Features/login.feature"'
+                sh './gradlew test -Dcucumber.options="/src/test/resources/Features/login.feature" -Dcucumber.options="-tags @SanityTest"'
             }
         }
         stage('Test Reports') {
