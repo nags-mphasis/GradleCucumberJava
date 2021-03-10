@@ -5,17 +5,17 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh './gradlew clean build'
+                sh './gradlew clean'
             }
         }
-/*        stage('Sanity check') {
+        stage('Sanity check') {
             steps {
                 input "Does the staging environment look ok?"
             }
-        } */
+        }
         stage('Test') {
             steps {
-                sh './gradlew check'
+                sh './gradlew test -Dcucumber.options="/src/test/resources/Features/login.feature"'
             }
         }
         stage('Test Reports') {
@@ -24,8 +24,8 @@ pipeline {
                 allowMissing: false,
                 alwaysLinkToLastBuild: false,
                 keepAll: true,
-                reportDir: 'target/HTMLReports',
-                reportFiles: 'Reports.html',
+                reportDir: 'target/JSONReports',
+                reportFiles: 'Reports.json',
                 reportName: "Cucumber Report"
                 ])
             }
