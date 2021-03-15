@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/resources/Features", glue={"StepDefinitions"},
 	monochrome = true,
-	plugin = {"pretty", "json:target/JSONReports/Reports.json"
+	plugin = {"pretty", "json:target/smokeReports/Reports.json"
 	//		"pretty", "html:target/HTMLReports/Reports.html",
 	//		"pretty", "junit:target/JunitReports/Reports.xml"
 	},
