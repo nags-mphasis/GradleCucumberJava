@@ -20,6 +20,10 @@ pipeline {
         }
         stage('Test Reports') {
             steps {
+                cucumber buildStatus: 'UNSTABLE',
+                reportTitle: 'Smoke Test',
+                fileIncludePattern: '**/*.json'
+                /*
                 publishHTML (target: [
                 allowMissing: false,
                 alwaysLinkToLastBuild: false,
@@ -28,6 +32,7 @@ pipeline {
                 reportFiles: 'Reports.json',
                 reportName: "Cucumber Report"
                 ])
+                */
             }
         }
     }
