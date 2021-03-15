@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './gradlew test -Dcucumber.options="/src/test/resources/Features/login.feature"'
+                sh './gradlew test -Dcucumber.options="/src/test/resources/Features/Smoke.feature"'
             }
         }
         stage('Test Reports') {
@@ -24,7 +24,7 @@ pipeline {
                 allowMissing: false,
                 alwaysLinkToLastBuild: false,
                 keepAll: true,
-                reportDir: 'target/JSONReports',
+                reportDir: 'target/SmokeReports',
                 reportFiles: 'Reports.json',
                 reportName: "Cucumber Report"
                 ])
